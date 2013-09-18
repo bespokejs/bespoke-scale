@@ -1,6 +1,6 @@
 {
   "name": "bespoke-scale",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/markdalgleish/bespoke-scale",
   "bugs": "https://github.com/markdalgleish/bespoke-scale/issues",
   "author": {
@@ -36,5 +36,8 @@
     {
       "type": "MIT"
     }
+  ],
+  "keywords": [
+    "bespoke.js-plugin"
   ]
 }

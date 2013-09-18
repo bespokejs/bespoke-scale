@@ -1,5 +1,5 @@
 /*!
- * bespoke-scale v0.0.0
+ * bespoke-scale v0.1.0
  * https://github.com/markdalgleish/bespoke-scale
  *
  * Copyright 2013, Mark Dalgleish
