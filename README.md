@@ -23,6 +23,27 @@ bespoke.horizontal.from('article', {
 });
 ```
 
+By default, bespoke-scale detects which method to use for resizing slides. In browsers that support it, CSS `zoom` is used. In all other browsers, each slide is wrapped with an element with a `bespoke-scale-parent` class, which is resized with CSS transforms. You will need to provide styles for this element, for example:
+
+```css
+.bespoke-scale-parent {
+  perspective: 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
+
+If you'd like to specify which scaling method to use, you can pass `'zoom'` or `'transform'` as an option, for example:
+
+```js
+bespoke.horizontal.from('article', {
+  scale: 'zoom'
+});
+```
+
 ## Package managers
 
 ### Bower
