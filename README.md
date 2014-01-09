@@ -18,7 +18,7 @@ First, include both `bespoke.js` and `bespoke-scale.js` in your page.
 Then, simply include the plugin when instantiating your presentation.
 
 ```js
-bespoke.horizontal.from('article', {
+bespoke.from('article', {
   scale: true
 });
 ```
@@ -39,7 +39,7 @@ By default, bespoke-scale detects which method to use for resizing slides. In br
 If you'd like to specify which scaling method to use, you can pass `'zoom'` or `'transform'` as an option, for example:
 
 ```js
-bespoke.horizontal.from('article', {
+bespoke.from('article', {
   scale: 'zoom'
 });
 ```
