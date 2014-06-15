@@ -23,7 +23,7 @@ var bespoke = require('bespoke'),
 
 bespoke.from('article', [
   scale()
-}];
+]);
 ```
 
 When using browser globals:
@@ -31,7 +31,7 @@ When using browser globals:
 ```js
 bespoke.from('article', [
   bespoke.plugins.scale()
-}];
+]);
 ```
 
 By default, bespoke-scale detects which method to use for resizing slides. In browsers that support it, CSS `zoom` is used. In all other browsers, each slide is wrapped with an element with a `bespoke-scale-parent` class, which is resized with CSS transforms. You will need to provide styles for this element, for example:
