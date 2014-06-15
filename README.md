@@ -60,13 +60,13 @@ bespoke.from('article', [
 ### npm
 
 ```bash
-$ npm install --save bespoke-scale
+$ npm install bespoke-scale
 ```
 
 ### Bower
 
 ```bash
-$ bower install --save bespoke-scale
+$ bower install bespoke-scale
 ```
 
 ## Credits
