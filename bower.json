@@ -1,6 +1,6 @@
 {
   "name": "bespoke-scale",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "main": "./dist/bespoke-scale.js",
   "dependencies": {
     "bespoke.js": "^1.0.0"

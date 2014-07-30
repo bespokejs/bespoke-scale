@@ -1,6 +1,6 @@
 {
   "name": "bespoke-scale",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "Responsive Slide Scaling for Bespoke.js",
   "homepage": "https://github.com/markdalgleish/bespoke-scale",
   "bugs": "https://github.com/markdalgleish/bespoke-scale/issues",
