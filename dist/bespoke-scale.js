@@ -18,7 +18,7 @@ module.exports = function(options) {
       wrap = function(element) {
         var wrapper = document.createElement('div');
         wrapper.className = 'bespoke-scale-parent';
-        parent.insertBefore(wrapper, element);
+        element.parentNode.insertBefore(wrapper, element);
         wrapper.appendChild(element);
         return wrapper;
       },
