@@ -1,7 +1,8 @@
 Function.prototype.bind = Function.prototype.bind || require('function-bind');
 
-var bespoke = require('bespoke');
-var scale = require('../../lib-instrumented/bespoke-scale.js');
+var bespoke = require('bespoke'),
+  classes = require('bespoke-classes'),
+  scale = require('../../lib-instrumented/bespoke-scale.js');
 
 describe("bespoke-scale", function() {
 
@@ -27,6 +28,7 @@ describe("bespoke-scale", function() {
       document.body.appendChild(container);
 
       deck = bespoke.from(parent, [
+        classes(),
         scale(pluginValue)
       ]);
     },
@@ -52,14 +54,14 @@ describe("bespoke-scale", function() {
     }('Transform')),
 
     actualSize = function(el, dimension) {
-      return el['offset' + (dimension === 'width' ? 'Width' : 'Height')] *
+      return el['offset' + dimension.substring(0, 1).toUpperCase() + dimension.substring(1)] *
         (el.style.zoom != null && el.style.zoom !== '' ?
           el.style.zoom :
           el.parentNode.style[transformProperty].match(/scale\(([0-9.]+)\)/)[1]
         );
     };
 
-  [undefined, 'zoom', 'transform'].forEach(function(option) {
+  [undefined, 'zoom', 'transform', 'transform-group'].forEach(function(option) {
 
     describe("option value of '" + option + "'", function() {
 
@@ -72,6 +74,11 @@ describe("bespoke-scale", function() {
             deck.slides.forEach(function(slide) {
               expect(slide.parentNode.className).toBe('bespoke-scale-parent');
             });
+          });
+        }
+        else if (option === 'transform-group') {
+          it("should wrap the group of slides in a 'bespoke-scale-parent'", function() {
+            expect(deck.parent.children[0].className).toBe('bespoke-scale-parent');
           });
         }
 

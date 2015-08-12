@@ -34,7 +34,7 @@ bespoke.from('article', [
 ]);
 ```
 
-By default, bespoke-scale detects which method to use for resizing slides. In browsers that support it, CSS `zoom` is used. In all other browsers, each slide is wrapped with an element with a `bespoke-scale-parent` class, which is resized with CSS transforms. You will need to provide styles for this element, for example:
+By default, bespoke-scale detects which method to use for resizing slides. In browsers that support it, CSS `zoom` is used. In all other browsers, the slides are wrapped with an element with a `bespoke-scale-parent` class, which is resized with CSS transforms. If the plugin option is 'transform', this element is wrapped around each slide individually. If the plugin option is 'transform-group', a single wrapper element is added around the whole group of slides. You'll need to provide styles for the wrapper element when using the transform scaling method. For example:
 
 ```css
 .bespoke-scale-parent {
@@ -47,7 +47,7 @@ By default, bespoke-scale detects which method to use for resizing slides. In br
 }
 ```
 
-If you'd like to specify which scaling method to use, you can pass `'zoom'` or `'transform'` as an option, for example:
+If you'd like to specify which scaling method to use, you can pass `'zoom'`, `'transform'` or `'transform-group'` as an option, for example:
 
 ```js
 bespoke.from('article', [
