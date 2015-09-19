@@ -1,7 +1,7 @@
 /*!
  * bespoke-scale v1.0.1
  *
- * Copyright 2014, Mark Dalgleish
+ * Copyright 2015, Mark Dalgleish
  * This content is released under the MIT license
  * http://mit-license.org/markdalgleish
  */
@@ -26,11 +26,15 @@ module.exports = function(options) {
       elements = useZoom ? deck.slides : deck.slides.map(wrap),
 
       transformProperty = (function(property) {
-        var prefixes = 'Moz Webkit O ms'.split(' ');
-        return prefixes.reduce(function(currentProperty, prefix) {
-            return prefix + property in parent.style ? prefix + property : currentProperty;
-          }, property.toLowerCase());
-      }('Transform')),
+        if (!(property in parent.style)) {
+          var prefix = ['webkit', 'Moz', 'ms', 'O'];
+          var proper = property.charAt(0).toUpperCase() + property.substr(1);
+          for (var i = 0, len = prefix.length; i < len; i++) {
+            if (prefix[i] + proper in parent.style) { return prefix[i] + proper; }
+          }
+        }
+        return property;
+      }('transform')),
 
       scale = useZoom ?
         function(ratio, element) {
@@ -50,7 +54,6 @@ module.exports = function(options) {
     window.addEventListener('resize', scaleAll);
     scaleAll();
   };
-
 };
 
 },{}]},{},[1])
