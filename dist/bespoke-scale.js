@@ -1,7 +1,7 @@
 /*!
  * bespoke-scale v1.0.1
  *
- * Copyright 2014, Mark Dalgleish
+ * Copyright 2015, Mark Dalgleish
  * This content is released under the MIT license
  * http://mit-license.org/markdalgleish
  */
@@ -13,7 +13,7 @@ module.exports = function(options) {
       firstSlide = deck.slides[0],
       slideHeight = firstSlide.offsetHeight,
       slideWidth = firstSlide.offsetWidth,
-      useZoom = options === 'zoom' || ('zoom' in parent.style && options !== 'transform'),
+      useZoom = options === 'zoom' || (options !== 'transform' && 'webkitAppearance' in parent.style),
 
       wrap = function(element) {
         var wrapper = document.createElement('div');

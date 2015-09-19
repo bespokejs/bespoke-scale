@@ -11,6 +11,7 @@ describe("bespoke-scale", function() {
       var style = document.createElement('style'),
         parent = document.createElement('article');
 
+      parent.className = 'bespoke-parent';
       container = document.createElement('div');
 
       style.innerText =
@@ -19,7 +20,9 @@ describe("bespoke-scale", function() {
         '.bespoke-slide { position: absolute; left: 50%; top: 50%; width: 100px; height: 100px; margin-left: -50px; margin-top: -50px; }';
 
       for (var i = 0; i < 10; i++) {
-        parent.appendChild(document.createElement('section'));
+        var slide = document.createElement('section');
+        slide.className = 'bespoke-slide';
+        parent.appendChild(slide);
       }
 
       container.appendChild(style);
