@@ -1,7 +1,7 @@
 /*!
  * bespoke-scale v1.0.1
  *
- * Copyright 2014, Mark Dalgleish
+ * Copyright 2015, Mark Dalgleish
  * This content is released under the MIT license
  * http://mit-license.org/markdalgleish
  */
@@ -41,9 +41,8 @@ module.exports = function(options) {
         },
 
       scaleAll = function() {
-        var xScale = parent.offsetWidth / slideWidth,
-          yScale = parent.offsetHeight / slideHeight;
-
+        var xScale = window.fullScreen ? window.outerWidth / slideWidth : parent.offsetWidth / slideWidth,
+          yScale = window.fullScreen ? window.outerHeight / slideHeight : parent.offsetHeight / slideHeight;
         elements.forEach(scale.bind(null, Math.min(xScale, yScale)));
       };
 
