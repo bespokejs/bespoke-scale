@@ -63,7 +63,7 @@ describe("bespoke-scale", function() {
 
     describe("option value of '" + option + "'", function() {
 
-      describe("loading a 4x3 pressentation", function() {
+      describe("loading a 4x3 presentation", function() {
 
         beforeEach(createDeck.bind(null, 1024, 768, option));
 
@@ -91,9 +91,20 @@ describe("bespoke-scale", function() {
 
         });
 
+        describe("resizing the window to fit the slides", function() {
+          beforeEach(function() {
+            resize(deck.parent, 100, 100, option);
+          });
+
+          it ("should clear the scale property on each slide", function() {
+            expect(deck.slides[0].style.zoom).toBe('');
+            expect(deck.slides[0].style[transformProperty]).toBe('');
+          });
+        });
+
       });
 
-      describe("loading a 16x9 pressentation", function() {
+      describe("loading a 16x9 presentation", function() {
 
         beforeEach(createDeck.bind(null, 1280, 720, option));
 
@@ -103,7 +114,7 @@ describe("bespoke-scale", function() {
 
       });
 
-      describe("loading a 3x4 pressentation", function() {
+      describe("loading a 3x4 presentation", function() {
 
         beforeEach(createDeck.bind(null, 480, 640, option));
 

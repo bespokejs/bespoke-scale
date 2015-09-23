@@ -1,7 +1,7 @@
 /*!
  * bespoke-scale v1.0.1
  *
- * Copyright 2014, Mark Dalgleish
+ * Copyright 2015, Mark Dalgleish
  * This content is released under the MIT license
  * http://mit-license.org/markdalgleish
  */
@@ -34,10 +34,10 @@ module.exports = function(options) {
 
       scale = useZoom ?
         function(ratio, element) {
-          element.style.zoom = ratio;
+          element.style.zoom = ratio === 1 ? '' : ratio;
         } :
         function(ratio, element) {
-          element.style[transformProperty] = 'scale(' + ratio + ')';
+          element.style[transformProperty] = ratio === 1 ? '' : 'scale(' + ratio + ')';
         },
 
       scaleAll = function() {
