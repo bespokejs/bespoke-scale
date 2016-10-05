@@ -1,5 +1,5 @@
 /*!
- * bespoke-scale v1.0.0
+ * bespoke-scale v1.0.1
  *
  * Copyright 2014, Mark Dalgleish
  * This content is released under the MIT license
@@ -18,7 +18,7 @@ module.exports = function(options) {
       wrap = function(element) {
         var wrapper = document.createElement('div');
         wrapper.className = 'bespoke-scale-parent';
-        parent.insertBefore(wrapper, element);
+        element.parentNode.insertBefore(wrapper, element);
         wrapper.appendChild(element);
         return wrapper;
       },
